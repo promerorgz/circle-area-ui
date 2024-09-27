@@ -1,5 +1,12 @@
 import axios, { AxiosResponse } from "axios";
 
+export interface ApiError {
+  code: string | undefined;
+  errorMessage: string | undefined;
+  body: string | undefined;
+  data: JSON;
+}
+
 const SERVER_URL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:8080"
@@ -7,7 +14,7 @@ const SERVER_URL =
 
 export const determineCircleArea = async (
   radius: number
-): Promise<number | null> => {
+): Promise<number | ApiError | null> => {
   console.log({ radius });
   try {
     const response: AxiosResponse<number> = await axios.post(
@@ -18,6 +25,14 @@ export const determineCircleArea = async (
     );
     return response.data;
   } catch (error: any) {
-    throw new Error(`Something went wrong: ${error?.message}`);
+    console.log({ error });
+    // eslint-disable-next-line no-throw-literal
+    throw {
+      code: error.code,
+      errorMessage: error.message,
+      body: error.response.data,
+      data: JSON.parse(error.config.data),
+      ...error,
+    };
   }
 };

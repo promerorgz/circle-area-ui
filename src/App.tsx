@@ -1,12 +1,12 @@
 import "./App.css";
-import Form from "./components/Form";
+import Main from "./components/Main";
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">Area of a Circle</header> */}
+      <header className="App-header">Area of a Circle</header>
       <div className="app-content">
-        <Form />
+        <Main />
       </div>
     </div>
   );
