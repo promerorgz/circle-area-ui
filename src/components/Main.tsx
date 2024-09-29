@@ -54,6 +54,9 @@ const Main = () => {
     <div className={styles.container}>
       <div className={`${styles.column} ${styles.left}`}>
         <Form
+          setArea={setArea}
+          setServerError={setServerError}
+          setRadius={setRadius}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           radius={radius}

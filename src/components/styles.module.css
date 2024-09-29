@@ -121,11 +121,11 @@
   border-radius: 50%;
   background-color: green;
   transition: width 1s ease 0s, height 1s ease 0s;
-  animation: breathing 5s ease-in-out infinite normal;
 }
 .circle:hover {
   cursor: pointer;
   background-color: #109950;
+  animation: breathing 5s ease-in-out infinite normal;
 }
 
 .loading {

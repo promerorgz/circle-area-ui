@@ -15,7 +15,6 @@ const SERVER_URL =
 export const determineCircleArea = async (
   radius: number
 ): Promise<number | ApiError | null> => {
-  console.log({ radius });
   try {
     const response: AxiosResponse<number> = await axios.post(
       `${SERVER_URL}/api/circle/area`,
